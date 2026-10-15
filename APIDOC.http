@@ -1,0 +1,99 @@
+
+#Authorization Endpoints
+
+#api call for creating user account
+###
+POST http://127.0.0.1:8000/v1/spending/register/ 
+Content-Type: application/json
+
+{
+    "username":"user",
+    "email":"user@gmail.com",
+    "password":"Password@123"
+}
+
+#api call for generete token
+###
+POST http://127.0.0.1:8000/v1/spending/token/
+Content-Type: application/json
+
+{
+    "username":"user",
+    "password":"Password@123"
+}
+
+
+
+
+#api call for cur user data
+###
+GET http://127.0.0.1:8000/v1/spending/me/
+Accept: application/json
+Authorization: Token 8937be4ca8a1a075a38218681cd536fbf6a737a7
+
+#Expense endpoint
+###
+GET http://127.0.0.1:8000/v1/spending/expense/
+Accept: application/json
+Authorization: Token 8937be4ca8a1a075a38218681cd536fbf6a737a7
+
+
+#api call 4 adding expense
+###
+POST http://127.0.0.1:8000/v1/spending/expense/
+Content-Type: application/json
+Authorization: Token 8937be4ca8a1a075a38218681cd536fbf6a737a7
+
+
+{
+    "title":"groceries",
+    "amount":9000,
+    "category":"BILLS",
+    "payment_method":"upi"
+}
+
+#api call for retrive record
+###
+GET http://127.0.0.1:8000/v1/spending/expense/5/
+Accept: application/json
+Authorization: Token 8937be4ca8a1a075a38218681cd536fbf6a737a7
+
+
+#api call for update
+###
+PUT http://127.0.0.1:8000/v1/spending/expense/5/
+Content-Type: application/json
+Authorization: Token 8937be4ca8a1a075a38218681cd536fbf6a737a7
+
+
+{
+  "id": 5,
+  "title": "games",
+  "amount": "9200.00",
+  "category": "ENTERTAINMENT",
+  "priority": "need",
+  "payment_method": "upi",
+  "created_at": "2026-10-11T18:27:25.427826Z",
+  "updated_at": "2026-10-11T18:27:25.427858Z",
+  "owner": 1
+}
+
+#api call for delete
+###
+DELETE http://127.0.0.1:8000/v1/spending/expense/6/
+Accept: application/json
+Authorization: Token 8937be4ca8a1a075a38218681cd536fbf6a737a7
+
+
+#api call for todat total
+###
+GET http://127.0.0.1:8000/v1/spending/expense/summary/
+Accept: application/json
+Authorization: Token 8937be4ca8a1a075a38218681cd536fbf6a737a7
+
+#api
+###
+GET http://127.0.0.1:8000/v1/spending/budget/
+Accept: application/json
+Authorization: Token 8937be4ca8a1a075a38218681cd536fbf6a737a7
+
